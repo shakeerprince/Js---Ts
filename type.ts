@@ -94,7 +94,7 @@ console.log(color.Green);
 
 
 
-*/
+
 
 
 // Type Alias
@@ -121,3 +121,143 @@ let employeeID : ID =  22;
 //employeeID = "employee"
 
 console.log(employeeID);
+
+
+
+///Type alias to define arrays
+
+type StringArray = string[]
+type NumberArray = Array<number>
+let names : StringArray = ['shaker', 'Alice', 'Bob']
+let numbers : NumberArray = [1, 2, 3, 4, 5]
+
+console.log(names);
+console.log(numbers);
+
+
+
+// Type alias to define complex object structure 
+
+
+type User = {
+    name : String;
+    age : Number;
+    isAdmin: boolean;
+}
+
+let adminUser : User = {
+    name : "alice",
+    age : 28,
+    isAdmin: true,
+}
+
+console.log(adminUser);
+
+
+
+
+type greet = (name : string)=> string;
+
+let greetUser : greet = (name : string)=>{
+    return ` Hello ${name}`
+
+}
+
+console.log(greetUser("shaker"));
+
+
+
+
+// Type alias for tuple
+
+type point = [number, number]
+
+let coordinate : point = [10, 20]
+
+console.log(coordinate);
+
+
+
+// combine multiple types into one 
+
+
+type HashName = {
+    name : string
+}
+
+type HashAge = {
+    age : number
+}
+type HashJob ={
+    job : string
+}
+
+type person = HashName & HashAge & HashJob
+
+let hash : person = {
+
+    name : "Rock",
+    age : 45,
+    job : "Fighter"
+}
+
+console.log(hash);
+
+
+
+//Extend Interface
+
+interface user {
+    name : string,
+    age : number,
+    greet() : string  
+}
+
+interface Employee extends user{
+   readonly job : string
+}
+
+let admin : Employee ={
+    name : "Alice",
+    age : 40,
+    job : "Dev",
+    greet() {
+        return `Hello ${this.name}`
+    },
+    
+
+} 
+admin.name = "Bob"
+admin.age = 34
+admin.job = "Developer"
+console.log(admin);
+
+ 
+//readonly :
+
+
+
+
+///Nullable Types : 
+
+let a;
+console.log(a);
+
+*/
+
+
+//optional Types
+
+
+function greet(name? : string){
+  if(name ){
+    console.log(`Hello ${name}`);
+    
+  }else{
+    console.log("Hello");
+    
+  }
+}
+
+
+greet()
